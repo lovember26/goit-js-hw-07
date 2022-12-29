@@ -34,9 +34,9 @@ function onImgClick(event) {
 }
 
 function setAttribute(currentImg) {
-  const imageEl = document.querySelector(".image");
-  const modalImg = currentImg.getAttribute("src");
-  imageEl.setAttribute("src", modalImg);
+  const imgModalEl = document.querySelector(".image");
+  const openedImageSrc = currentImg.getAttribute("src");
+  imgModalEl.setAttribute("src", openedImageSrc);
 }
 
 if (instance.visible) {
