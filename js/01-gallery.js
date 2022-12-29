@@ -1,6 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
-const gallery = document.querySelector(".gallery");
+const galleryEl = document.querySelector(".gallery");
 const galleryMarkup = galleryItems
   .map(({ preview, original, description }) => {
     return `<div class="gallery__item">
@@ -20,8 +20,8 @@ const instance = basicLightbox.create(`
     <img src="#" class='image' width="800" height="600">
 `);
 
-gallery.insertAdjacentHTML("afterbegin", galleryMarkup);
-gallery.addEventListener("click", onImgClick);
+galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
+galleryEl.addEventListener("click", onImgClick);
 
 function onImgClick(event) {
   event.preventDefault();
@@ -30,10 +30,10 @@ function onImgClick(event) {
   }
 
   instance.show();
-  const image = document.querySelector(".image");
+  const imageEl = document.querySelector(".image");
 
   const modalImg = event.target.getAttribute("src");
-  image.setAttribute("src", modalImg);
+  imageEl.setAttribute("src", modalImg);
 }
 
 if (instance.visible) {
