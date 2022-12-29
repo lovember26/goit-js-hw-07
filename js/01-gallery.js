@@ -30,9 +30,12 @@ function onImgClick(event) {
   }
 
   instance.show();
-  const imageEl = document.querySelector(".image");
+  setAttribute(event.target);
+}
 
-  const modalImg = event.target.getAttribute("src");
+function setAttribute(currentImg) {
+  const imageEl = document.querySelector(".image");
+  const modalImg = currentImg.getAttribute("src");
   imageEl.setAttribute("src", modalImg);
 }
 
