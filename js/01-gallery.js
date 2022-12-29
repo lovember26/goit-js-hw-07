@@ -16,9 +16,20 @@ const galleryMarkup = galleryItems
   })
   .join("");
 
-const instance = basicLightbox.create(`
+const instance = basicLightbox.create(
+  `
     <img src="#" class='image' width="800" height="600">
-`);
+`,
+
+  {
+    onShow: (instance) => {
+      document.addEventListener("keydown", onEscPress);
+    },
+    onClose: (instance) => {
+      document.removeEventListener("keydown", onEscPress);
+    },
+  }
+);
 
 galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
 galleryEl.addEventListener("click", onImgClick);
@@ -39,9 +50,6 @@ function setAttribute(currentImg) {
   imgModalEl.setAttribute("src", openedImageSrc);
 }
 
-if (instance.visible) {
-  window.addEventListener("keydown", onEscPress);
-}
 function onEscPress(event) {
   if (event.key === "Escape") {
     instance.close();
