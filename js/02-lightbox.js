@@ -19,6 +19,7 @@ function onImgClick(event) {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-
-  const gallery = new SimpleLightbox(".gallery a");
 }
+const gallery = new SimpleLightbox(".gallery a");
+gallery.options.captionsData = "alt";
+gallery.options.captionDelay = 250;
